@@ -2,11 +2,13 @@ package org.tq.util;
 
 import java.io.File;
 import java.io.IOException;
-
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
@@ -69,5 +71,25 @@ public class BaseClass {
 		}
 		return arr;
 	}
+	public static void screenshotEx(WebDriver driver,String destLoc) throws IOException
+	{
+		TakesScreenshot tsh = (TakesScreenshot) driver;
+	 	File srcFile = tsh.getScreenshotAs(OutputType.FILE);
+	 	System.out.println("Location ::" + srcFile.getAbsolutePath());
+	 	//FileUtils is having methods to copy teh file from one location to antoher location
+	 	//commons-io
+	 	FileHandler.copy(srcFile,new File(destLoc));
+	 	
+	 	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

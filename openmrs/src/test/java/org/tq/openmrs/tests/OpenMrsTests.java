@@ -21,7 +21,7 @@ public class OpenMrsTests extends BaseClass{
  
 	@Parameters({"username","password","serviceName"})
 	@Test(enabled=false) 
-	public void verifyServiceTypeAvailable(String username,String password,String serviceName)
+	public void verifyServiceTypeAvailable(String username,String password,String serviceName) throws IOException
 	{
 		LoginPage lPage = new LoginPage(driver);
 		HomePage hPage = new HomePage(driver);
@@ -39,7 +39,7 @@ public class OpenMrsTests extends BaseClass{
 	}
 	@Parameters({"username","password" })
 	@Test
-	public void verifyAddServiceTypeAvailable(String username,String password )
+	public void verifyAddServiceTypeAvailable(String username,String password ) throws IOException
 	{
 		LoginPage lPage = new LoginPage(driver);
 		HomePage hPage = new HomePage(driver);
@@ -57,7 +57,7 @@ public class OpenMrsTests extends BaseClass{
 
  
 	@Test(dataProvider="DP") 
-	public void verifyListServiceTypeAvailable(String username,String password,String serviceName)
+	public void verifyListServiceTypeAvailable(String username,String password,String serviceName) throws IOException
 	{
 		LoginPage lPage = new LoginPage(driver);
 		HomePage hPage = new HomePage(driver);
